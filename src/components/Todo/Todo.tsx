@@ -9,8 +9,6 @@ interface ITodoProps extends AllHTMLAttributes<HTMLDivElement> {
 }
 
 const Todo: FC<ITodoProps> = observer(({ todo, className = '', ...props }) => {
-    console.log('render Todo')
-
     const wrapperStyles = `${styles.todoWrapper} ${className ?? ''} ${
         todo.completed ? styles.todoCompleted : ''
     }`

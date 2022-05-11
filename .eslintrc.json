@@ -6,8 +6,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:effector/recommended",
-        "plugin:effector/scope"
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -16,7 +16,7 @@
         "ecmaVersion": 2021,
         "sourceType": "module"
     },
-    "plugins": ["react", "react-hooks", "@typescript-eslint", "effector"],
+    "plugins": ["react", "react-hooks", "@typescript-eslint"],
     "parser": "@typescript-eslint/parser",
     "rules": {
         "quotes": ["warn", "single", { "allowTemplateLiterals": true }],
@@ -26,13 +26,14 @@
         "prefer-const": "warn",
         "max-len": ["warn", { "code": 100 }],
         "comma-dangle": ["warn", "always-multiline"],
-        "no-unused-vars": "warn",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/ban-ts-comment": "off",
         "semi": ["warn", "never"],
         "react/prop-types": "warn",
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
-        "effector/enforce-store-naming-convention": "off"
+        "react-hooks/exhaustive-deps": "warn"
     }
 }
