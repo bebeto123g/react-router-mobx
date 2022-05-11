@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ITodo } from '../store/todos'
+import { ITodo } from '../store/Todos'
 
 export const BASE_TODO = {
     URL: 'https://jsonplaceholder.typicode.com',

@@ -1,15 +1,20 @@
-import React, { FormEventHandler } from 'react'
+import React, { FormEventHandler, useState } from 'react'
+import { observer } from 'mobx-react'
 
+import $user, { IUserFormState } from '../store/User'
 import TextInput from '../components/Forms/TextInput/TextInput'
 import Container from '../UI/Container/Container'
 
-const HomeView = () => {
-    const form = useStore($userForm)
+const HomeView = observer(() => {
+    const [form, setForm] = useState<IUserFormState>({
+        name: $user.userForm.name,
+        surname: $user.userForm.surname,
+    })
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
         // eslint-disable-next-line
-        console.log(form)
+        $user.setUserForm(form)
     }
 
     return (
@@ -18,13 +23,13 @@ const HomeView = () => {
             <form onSubmit={submitHandler}>
                 <TextInput
                     value={form.name}
-                    onChange={changeUserName}
+                    onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
                     name={'name'}
                     labelText='Имя'
                 />
                 <TextInput
-                    value={form.lastName}
-                    onChange={changeUserLastName}
+                    value={form.surname}
+                    onChange={(e) => setForm((prev) => ({ ...prev, surname: e.target.value }))}
                     name={'lastName'}
                     labelText='Фамилия'
                 />
@@ -32,6 +37,6 @@ const HomeView = () => {
             </form>
         </Container>
     )
-}
+})
 
 export default HomeView

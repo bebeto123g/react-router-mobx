@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Todo.module.scss'
-import { getTodosFx } from '../../store/todos'
 
 const TodoPagination = () => {
     const [page, setPage] = useState<number>(0)
 
     useEffect(() => {
-        getTodosFx(page)
+        // getTodosFx(page)
         // просто имитация пагинации
     }, [page])
 

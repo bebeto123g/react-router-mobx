@@ -1,20 +1,23 @@
 import React, { FC, useEffect } from 'react'
+import { observer } from 'mobx-react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
+import $todos from '../store/Todos'
 
-const TodoView: FC = () => {
+const TodoView: FC = observer(() => {
     const navigate = useNavigate()
     const { todoId } = useParams()
-    const todos = useStore($todosStore)
 
     useEffect(() => {
-        if (!todos.length) {
+        if (!$todos.todos) {
             navigate('/list')
         }
-    }, [todos, navigate])
+    }, [navigate])
 
-    const todo = todos.find((todo) => todo.id === Number(todoId))
+
+
+    const todo = $todos.todos?.find((todo) => todo.id === Number(todoId))
 
     if (!todo) {
         return (
@@ -34,6 +37,6 @@ const TodoView: FC = () => {
             </Link>
         </div>
     )
-}
+})
 
 export default TodoView

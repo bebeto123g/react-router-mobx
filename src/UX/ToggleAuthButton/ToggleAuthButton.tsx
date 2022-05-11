@@ -1,5 +1,7 @@
 import React, { ButtonHTMLAttributes, FC } from 'react'
-import { $userForm, toggleUserAuth } from '../../store/user'
+import { observer } from 'mobx-react'
+
+import $user from '../../store/User'
 
 interface IToggleAuthButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     signin: string
@@ -7,21 +9,22 @@ interface IToggleAuthButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     callback?: () => void
 }
 
-const ToggleAuthButton: FC<IToggleAuthButton> = ({ signin, signout, callback, ...props }) => {
-    const isAuth = useStore($userForm).isAuth
+const ToggleAuthButton: FC<IToggleAuthButton> = observer(
+    ({ signin, signout, callback, ...props }) => {
+        const handler = () => {
+            $user.isAuth ? $user.logout() : $user.login()
 
-    const handler = () => {
-        toggleUserAuth()
-        if (callback) {
-            callback()
+            if (callback) {
+                callback()
+            }
         }
-    }
 
-    return (
-        <button {...props} onClick={handler}>
-            {isAuth ? signout : signin}
-        </button>
-    )
-}
+        return (
+            <button {...props} onClick={handler}>
+                {$user.isAuth ? signout : signin}
+            </button>
+        )
+    },
+)
 
 export default ToggleAuthButton

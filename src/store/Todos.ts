@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-import { ITimeoutId } from '../global'
+import { getTodosPage } from './../API/getTodo'
 
 export interface ITodo {
     userId: number
@@ -9,31 +9,45 @@ export interface ITodo {
 }
 
 class Todos {
-    isPending: boolean = false
-    todos: ITodo[] = []
-    newTodo: string = ''
+    todos: ITodo[] | null = null
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    get() {
-
+    async get(page: number = 0) {
+        this.todos = await getTodosPage(page)
     }
 
-    add() {
-
+    add(title: string) {
+        this.todos?.push({
+            id: Math.max(0, Math.max(...this.todos.map(({ id }) => id))) + 1,
+            userId: 123,
+            title,
+            completed: false,
+        })
     }
 
-    update() {
-
+    update(id: number, title: string) {
+        const index = this.findTodoIndex(id)
+        if (!this.todos || !index) return
+        this.todos[index].title = title
     }
-    remove() {
 
+    remove(id: number) {
+        const index = this.findTodoIndex(id)
+        if (!this.todos || !index) return
+        this.todos.splice(index, 1)
     }
 
-    toggleCompleted(id: number | string) {
+    toggleCompleted(id: number) {
+        const index = this.findTodoIndex(id)
+        if (!this.todos || !index) return
+        this.todos[index].completed = !this.todos[index].completed
+    }
 
+    findTodoIndex(id: number) {
+        return this.todos?.findIndex((todo) => todo.id === id)
     }
 }
 

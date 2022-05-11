@@ -1,20 +1,23 @@
-import React, { ChangeEventHandler, FormEventHandler } from 'react'
+import React, { ChangeEventHandler, FormEventHandler, useState } from 'react'
 import styles from './Todo.module.scss'
 
 import TextInput from '../Forms/TextInput/TextInput'
+import $todos from '../../store/Todos'
+import { observer } from 'mobx-react'
 
-const AddTodo = () => {
-    const value = useStore($todosSideStore).newTodo
+const AddTodo = observer(() => {
+    const [value, setValue] = useState('')
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
-        if (value.trim()) {
-            addTodo(value.trim())
+        setValue((prev) => prev.trim())
+        if (value) {
+            $todos.add(value)
         }
     }
 
     const changehandler: ChangeEventHandler<HTMLInputElement> = (event) => {
-        setNewTodo(event.target.value)
+        setValue(event.target.value)
     }
 
     return (
@@ -23,12 +26,12 @@ const AddTodo = () => {
                 labelText='Добавить задачу'
                 value={value}
                 onChange={changehandler}
-                name={'add-todo'}
+                name={'newTodo'}
                 className={styles.addInput}
             />
             <button type='submit'>Добавить</button>
         </form>
     )
-}
+})
 
 export default AddTodo
