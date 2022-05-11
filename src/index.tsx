@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'mobx-react'
-import { store } from './store/index'
 
+import { store } from './store/index'
 
 import App from './App'
 import reportWebVitals from './reportWebVitals'

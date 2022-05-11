@@ -3,7 +3,7 @@ import { ITodo } from '../store/Todos'
 
 export const BASE_TODO = {
     URL: 'https://jsonplaceholder.typicode.com',
-    PAGE_SIZE: 200,
+    PAGE_SIZE: 10,
 }
 
 export const getTodosPage = async (page: number = 0): Promise<ITodo[]> => {

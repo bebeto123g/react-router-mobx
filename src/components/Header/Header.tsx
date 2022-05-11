@@ -16,6 +16,7 @@ const Header = () => {
                 <AppNavLink to={'/'}>Домой</AppNavLink>
                 <AppNavLink to={'/list'}>Список</AppNavLink>
                 <AppNavLink to={'/about'}>О проекте</AppNavLink>
+                <AppNavLink to={'/memo'}>Memo</AppNavLink>
                 <BackButton className={styles.backBtn}>Назад</BackButton>
                 <ToggleAuthButton className={styles.backBtn} signin='Войти' signout='Выйти' />
             </Container>

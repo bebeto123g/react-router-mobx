@@ -1,22 +1,16 @@
 import { makeAutoObservable } from 'mobx'
 
-export interface IUserFormState {
+export interface IUserState {
     name: string
     surname: string
-}
-
-export interface IUserState {
-    userForm: IUserFormState
     isAuth: boolean
 }
 
 class User implements IUserState {
     private static USER_FORM_STORAGE_KEY = 'storage/user-form'
 
-    userForm = {
-        name: '',
-        surname: '',
-    }
+    name = ''
+    surname = ''
     isAuth = false
 
     constructor() {
@@ -24,8 +18,13 @@ class User implements IUserState {
         makeAutoObservable(this)
     }
 
-    setUserForm(form: IUserFormState): void {
-        this.userForm = form
+    setName(name: string): void {
+        this.name = name
+        this.setStateToLocalStorage()
+    }
+
+    setSurname(surname: string): void {
+        this.surname = surname
         this.setStateToLocalStorage()
     }
 
@@ -44,7 +43,8 @@ class User implements IUserState {
         if (!storageUserForm) return
         const storage: IUserState = JSON.parse(storageUserForm)
         this.isAuth = storage.isAuth
-        this.userForm = storage.userForm
+        this.name = storage.name
+        this.surname = storage.surname
     }
 
     setStateToLocalStorage(): void {
@@ -53,10 +53,8 @@ class User implements IUserState {
 
     get state(): IUserState {
         return {
-            userForm: {
-                name: this.userForm.name,
-                surname: this.userForm.surname,
-            },
+            name: this.name,
+            surname: this.surname,
             isAuth: this.isAuth,
         }
     }
