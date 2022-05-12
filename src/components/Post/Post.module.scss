@@ -27,3 +27,18 @@
 .remove {
     margin-left: 16px;
 }
+
+.addTodo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $indent * 3;
+
+    .addInput {
+        flex-grow: 1;
+        margin-bottom: 0;
+        margin-right: $indent * 2;
+    }
+    button {
+        width: 150px;
+    }
+}

@@ -1,8 +1,8 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { observer } from 'mobx-react'
+import styles from './Post.module.scss'
 import $posts, { IPost } from '../../store/Posts'
 import ButtonX from '../../UI/ButtonX/ButtonX'
-import styles from './Post.module.scss'
 
 interface IPostProps extends HTMLAttributes<HTMLDivElement> {
     post: IPost
