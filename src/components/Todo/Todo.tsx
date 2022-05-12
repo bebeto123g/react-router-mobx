@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import styles from './Todo.module.scss'
 import $todos, { ITodo } from '../../store/Todos'
+import ButtonX from '../../UI/ButtonX/ButtonX'
 
 interface ITodoProps extends AllHTMLAttributes<HTMLDivElement> {
     todo: ITodo
@@ -27,13 +28,7 @@ const Todo: FC<ITodoProps> = observer(({ todo, className = '', ...props }) => {
             <Link to={String(todo.id)} className={`${styles.more}`}>
                 Подробнее
             </Link>
-            <button
-                type='button'
-                className={styles.todoRemove}
-                onClick={() => $todos.remove(todo.id)}
-            >
-                &times;
-            </button>
+            <ButtonX className={styles.todoRemove} onClick={() => $todos.remove(todo.id)} />
         </div>
     )
 })

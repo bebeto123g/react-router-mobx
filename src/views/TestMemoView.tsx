@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { getTodosPage } from '../API/getTodo'
+import { APIJson } from '../API/APIJson'
 import { ITodo } from '../store/Todos'
 import styles from '../components/Todo/Todo.module.scss'
 import Loader from '../UI/Loader/Loader'
@@ -47,7 +47,7 @@ const TestMemoView = () => {
 
     useEffect(() => {
         if (!todos) {
-            getTodosPage().then((todos) => {
+            APIJson.getTodosPage().then((todos) => {
                 setTodos(todos)
             })
         }

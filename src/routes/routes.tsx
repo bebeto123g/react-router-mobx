@@ -10,6 +10,7 @@ const AboutView = lazy(() => import('../views/AboutView'))
 const LoginView = lazy(() => import('../views/LoginView'))
 const TodoView = lazy(() => import('../views/TodoView'))
 const TestMemoView = lazy(() => import('../views/TestMemoView'))
+const PostsView = lazy(() => import('../views/PostsView'))
 
 export const routes: RouteObject[] = [
     {
@@ -45,6 +46,10 @@ export const routes: RouteObject[] = [
     {
         path: 'memo',
         element: <TestMemoView />,
+    },
+    {
+        path: 'posts',
+        element: <PostsView />,
     },
     {
         path: '*',

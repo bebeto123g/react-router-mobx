@@ -29,6 +29,7 @@
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-inferrable-types": "warn",
         "semi": ["warn", "never"],
         "react/prop-types": "warn",
         "react/jsx-uses-react": "error",

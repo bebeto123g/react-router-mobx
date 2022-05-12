@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-import { getTodosPage } from './../API/getTodo'
+import { APIJson } from '../API/APIJson'
 
 export interface ITodo {
     userId: number
@@ -15,8 +15,13 @@ class Todos {
         makeAutoObservable(this)
     }
 
-    async get(page: number = 0) {
-        this.todos = await getTodosPage(page)
+    async get(page = 0) {
+        const todos = await APIJson.getTodosPage(page)
+        this.setTodos(todos)
+    }
+
+    setTodos(todos: ITodo[]) {
+        this.todos = todos
     }
 
     add(title: string) {
@@ -36,7 +41,7 @@ class Todos {
 
     remove(id: number) {
         const index = this.findTodoIndex(id)
-        if (!this.todos || !index) return
+        if (!this.todos || index === undefined || index < 0) return
         this.todos.splice(index, 1)
     }
 

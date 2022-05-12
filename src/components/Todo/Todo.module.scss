@@ -1,6 +1,5 @@
 @import 'src/styles/services/common';
 
-
 .addTodo {
     display: flex;
     justify-content: space-between;
@@ -58,9 +57,6 @@
 .todoRemove {
     display: block;
     margin-left: auto;
-    padding: 10px;
-    line-height: 7.5px;
-    background-color: brown;
 }
 
 .more {
