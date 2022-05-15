@@ -6,7 +6,6 @@ const TodoSearchForm = () => {
     const [SearchParams, setSearchParams] = useSearchParams()
     const [search, setSearch] = useState<string>(SearchParams.get('search') || '')
 
-
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
         setSearchParams({ search })

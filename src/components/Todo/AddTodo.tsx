@@ -16,7 +16,7 @@ const AddTodo = observer(() => {
         }
     }
 
-    const changehandler: ChangeEventHandler<HTMLInputElement> = (event) => {
+    const changeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
         setValue(event.target.value)
     }
 
@@ -25,7 +25,7 @@ const AddTodo = observer(() => {
             <TextInput
                 labelText='Добавить задачу'
                 value={value}
-                onChange={changehandler}
+                onChange={changeHandler}
                 name={'newTodo'}
                 className={styles.addInput}
             />

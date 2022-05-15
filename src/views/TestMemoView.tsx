@@ -9,6 +9,7 @@ import AddTodoMemo from '../components/Todo/AddTodoMemo'
 
 const TestMemoView = () => {
     const [todos, setTodos] = useState<ITodo[] | null>(null)
+    const [isReverse, setIsReverse] = useState<boolean>(false)
 
     const toggleCompleted = useCallback((id: number) => {
         setTodos((todos) => {
@@ -55,12 +56,26 @@ const TestMemoView = () => {
 
     if (!todos) return <Loader />
 
+    const reverseTodos = todos?.reverse()
+
     return (
         <Container>
             <h1>Memo Page</h1>
+            <div className=''>
+                <input
+                    type='checkbox'
+                    name='reverse-list'
+                    id='reverse-list'
+                    checked={isReverse}
+                    onChange={() => {
+                        setIsReverse((prev) => !prev)
+                    }}
+                />
+                <label htmlFor='reverse-list'>Реверс</label>
+            </div>
             <AddTodoMemo addTodo={addTodo} />
             <ul className={styles.list}>
-                {todos.map((todo) => (
+                {reverseTodos.map((todo) => (
                     <TodoMemo
                         todo={todo}
                         key={todo.id + String(+todo.completed)}

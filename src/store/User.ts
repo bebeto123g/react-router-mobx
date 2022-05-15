@@ -1,9 +1,9 @@
 import { makeAutoObservable } from 'mobx'
-
 export interface IUserState {
     name: string
     surname: string
     isAuth: boolean
+    id: number
 }
 
 class User implements IUserState {
@@ -12,6 +12,7 @@ class User implements IUserState {
     name = ''
     surname = ''
     isAuth = false
+    id = 123
 
     constructor() {
         this.getStateFromLocalStorage()
@@ -56,6 +57,7 @@ class User implements IUserState {
             name: this.name,
             surname: this.surname,
             isAuth: this.isAuth,
+            id: this.id,
         }
     }
 }

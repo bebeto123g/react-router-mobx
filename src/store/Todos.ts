@@ -1,5 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 import { APIJson } from '../API/APIJson'
+import $user from './User'
 
 export interface ITodo {
     userId: number
@@ -27,7 +28,7 @@ class Todos {
     add(title: string) {
         this.todos?.push({
             id: Math.max(0, Math.max(...this.todos.map(({ id }) => id))) + 1,
-            userId: 123,
+            userId: $user.id,
             title,
             completed: false,
         })

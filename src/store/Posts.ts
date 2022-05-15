@@ -1,5 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 import { APIJson } from '../API/APIJson'
+import $user from './User'
 
 export interface IPost {
     userId: number
@@ -7,6 +8,8 @@ export interface IPost {
     title: string
     body: string
 }
+
+export type IPostNewProps = Omit<IPost, 'id' | 'userId'>
 
 class Posts {
     posts: IPost[] | null = null
@@ -20,7 +23,14 @@ class Posts {
         this.setPosts(posts)
     }
 
-    // add() {}
+    add({ title, body }: IPostNewProps) {
+        this.posts?.push({
+            id: Math.max(0, Math.max(...this.posts.map(({ id }) => id))) + 1,
+            userId: $user.id,
+            title,
+            body,
+        })
+    }
 
     // update(id: number, title: string) {}
 

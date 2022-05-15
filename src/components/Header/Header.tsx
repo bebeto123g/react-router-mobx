@@ -1,10 +1,15 @@
 import React from 'react'
-// import { useMatch } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+// import { useMatch, useNavigate } from 'react-router-dom';
 import styles from './Header.module.scss'
 import Container from '../../UI/Container/Container'
 import AppNavLink from '../NavLink/NavLink'
 import BackButton from '../../UX/BackButton/BackButton'
 import ToggleAuthButton from '../../UX/ToggleAuthButton/ToggleAuthButton'
+
+interface ILocationState {
+    from?: Location
+}
 
 const Header = () => {
     // const match = useMatch('/list/:search')
@@ -19,7 +24,11 @@ const Header = () => {
                 <AppNavLink to={'/memo'}>Memo</AppNavLink>
                 <AppNavLink to={'/posts'}>Посты</AppNavLink>
                 <BackButton className={styles.backBtn}>Назад</BackButton>
-                <ToggleAuthButton className={styles.backBtn} signin='Войти' signout='Выйти' />
+                <ToggleAuthButton
+                    className={styles.backBtn}
+                    signin='Войти'
+                    signout='Выйти'
+                />
             </Container>
         </div>
     )

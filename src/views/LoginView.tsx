@@ -3,13 +3,13 @@ import { Location, useLocation, useNavigate } from 'react-router-dom'
 import Container from '../UI/Container/Container'
 import ToggleAuthButton from '../UX/ToggleAuthButton/ToggleAuthButton'
 
-interface LocationState {
+interface ILocationState {
     from?: Location
 }
 
 const LoginView: FC = () => {
     const navigate = useNavigate()
-    const { from } = useLocation().state as LocationState
+    const { from } = useLocation().state as ILocationState
 
     const callbackLogin = () => {
         navigate(from?.pathname || '/', { replace: true })
