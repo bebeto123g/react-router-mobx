@@ -30,15 +30,17 @@
 
 .addTodo {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin-bottom: $indent * 3;
 
     .addInput {
         flex-grow: 1;
-        margin-bottom: 0;
-        margin-right: $indent * 2;
+        margin-bottom: $indent * 2;
     }
+
     button {
         width: 150px;
+        margin-left: auto;
     }
 }

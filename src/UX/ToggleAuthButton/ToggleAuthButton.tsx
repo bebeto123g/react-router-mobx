@@ -1,19 +1,27 @@
 import React, { ButtonHTMLAttributes, FC } from 'react'
+import { Location, useLocation, useNavigate } from 'react-router-dom'
 import { observer } from 'mobx-react'
 
 import $user from '../../store/User'
 
 interface IToggleAuthButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-    signin: string
-    signout: string
-    callback?: () => void
+    signIn: string
+    signOut: string
+    callback?: (...args: any[]) => void
+}
+
+interface ILocationState {
+    from?: Location
 }
 
 const ToggleAuthButton: FC<IToggleAuthButton> = observer(
-    ({ signin, signout, callback, ...props }) => {
+    ({ signIn, signOut, callback, ...props }) => {
+        const navigate = useNavigate()
+        const state = useLocation().state as ILocationState
+
         const handler = () => {
             $user.isAuth ? $user.logout() : $user.login()
-
+            navigate(state?.from?.pathname || '/', { replace: true })
             if (callback) {
                 callback()
             }
@@ -21,7 +29,7 @@ const ToggleAuthButton: FC<IToggleAuthButton> = observer(
 
         return (
             <button {...props} onClick={handler}>
-                {$user.isAuth ? signout : signin}
+                {$user.isAuth ? signOut : signIn}
             </button>
         )
     },

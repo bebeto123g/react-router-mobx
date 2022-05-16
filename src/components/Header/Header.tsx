@@ -26,8 +26,8 @@ const Header = () => {
                 <BackButton className={styles.backBtn}>Назад</BackButton>
                 <ToggleAuthButton
                     className={styles.backBtn}
-                    signin='Войти'
-                    signout='Выйти'
+                    signIn='Войти'
+                    signOut='Выйти'
                 />
             </Container>
         </div>
