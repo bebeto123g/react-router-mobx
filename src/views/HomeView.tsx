@@ -4,6 +4,7 @@ import { observer } from 'mobx-react'
 import $user from '../store/User'
 import TextInput from '../components/Forms/TextInput/TextInput'
 import Container from '../UI/Container/Container'
+import HookForms from '../components/HookForms/HookForms'
 
 const HomeView = observer(() => {
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
@@ -29,6 +30,10 @@ const HomeView = observer(() => {
                 />
                 <button type='submit'>Отправить форму</button>
             </form>
+            <br />
+            <hr />
+            <br />
+            <HookForms />
         </Container>
     )
 })

@@ -9,8 +9,6 @@ interface IPostProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Post: FC<IPostProps> = observer(({ post, className = '', ...props }) => {
-    console.log('render post', post.id)
-
     return (
         <div className={`${styles.post} ${className ?? ''}`} {...props}>
             <div className={styles.header}>

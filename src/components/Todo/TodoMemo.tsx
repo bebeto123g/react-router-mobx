@@ -17,8 +17,6 @@ const TodoMemo: FC<ITodoProps> = ({
     removeTodo,
     ...props
 }) => {
-    console.log('render Todo Memo', todo.id)
-
     const wrapperStyles = `${styles.todoWrapper} ${className ?? ''} ${
         todo.completed ? styles.todoCompleted : ''
     }`

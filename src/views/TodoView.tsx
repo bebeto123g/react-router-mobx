@@ -1,8 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { observer } from 'mobx-react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 
-import { Link } from 'react-router-dom'
 import $todos from '../store/Todos'
 
 const TodoView: FC = observer(() => {

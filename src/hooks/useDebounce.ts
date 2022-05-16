@@ -3,10 +3,10 @@
 import { useCallback, useRef } from 'react'
 import { ITimeoutId } from '../global'
 
-function useDebounce(callback: (...args: any[]) => void, delay: number = 0) {
+function useDebounce(callback: (...args: []) => void, delay = 0) {
     const timer = useRef<ITimeoutId>()
 
-    return useCallback((...args: any[]) => {
+    return useCallback((...args: []) => {
         if (timer.current) {
             clearTimeout(timer.current)
         }

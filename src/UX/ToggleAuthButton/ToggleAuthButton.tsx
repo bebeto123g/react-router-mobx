@@ -7,7 +7,7 @@ import $user from '../../store/User'
 interface IToggleAuthButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     signIn: string
     signOut: string
-    callback?: (...args: any[]) => void
+    callback?: (...args: []) => void
 }
 
 interface ILocationState {
