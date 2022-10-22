@@ -10,7 +10,6 @@ const HookForms = () => {
         reset, // сброс всей формы
     } = useForm({
         mode: 'onBlur', // когда валидацию проводим
-
     })
 
     const onSubmit = (data: any) => {

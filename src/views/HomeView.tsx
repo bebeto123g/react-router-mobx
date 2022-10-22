@@ -2,14 +2,21 @@ import React, { FormEventHandler } from 'react'
 import { observer } from 'mobx-react'
 
 import $user from '../store/User'
+import $modal from '../store/Modal'
+
 import TextInput from '../components/Forms/TextInput/TextInput'
 import Container from '../UI/Container/Container'
 import HookForms from '../components/HookForms/HookForms'
+import Modal from '../components/Modal/Modal'
 
 const HomeView = observer(() => {
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
         console.log($user.state)
+    }
+
+    const openModalConfirm = () => {
+        $modal.show()
     }
 
     return (
@@ -33,7 +40,9 @@ const HomeView = observer(() => {
             <br />
             <hr />
             <br />
-            <HookForms />
+            <button onClick={openModalConfirm}>Открыть модалку</button>
+            <Modal />
+            {/* <HookForms /> */}
         </Container>
     )
 })

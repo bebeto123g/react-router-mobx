@@ -18,11 +18,7 @@ const Header = () => {
                 <AppNavLink to={'/memo'}>Memo</AppNavLink>
                 <AppNavLink to={'/posts'}>Посты</AppNavLink>
                 <BackButton className={styles.backBtn}>Назад</BackButton>
-                <ToggleAuthButton
-                    className={styles.backBtn}
-                    signIn='Войти'
-                    signOut='Выйти'
-                />
+                <ToggleAuthButton className={styles.backBtn} signIn='Войти' signOut='Выйти' />
             </Container>
         </div>
     )

@@ -29,7 +29,9 @@ const AddTodo = observer(() => {
                 name={'newTodo'}
                 className={styles.addInput}
             />
-            <button type='submit' disabled={Boolean(!value)}>Добавить</button>
+            <button type='submit' disabled={Boolean(!value)}>
+                Добавить
+            </button>
         </form>
     )
 })
