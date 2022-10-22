@@ -1,0 +1,26 @@
+.modal {
+    display: block;
+    background: #0005;
+    .modal-dialog {
+        transform: translateY(-1000px);
+        transition: 0.5s;
+    }
+}
+
+.modal-css-enter-active {
+    .modal-dialog {
+        transform: translateY(0);
+    }
+}
+
+.modal-css-enter-done {
+    .modal-dialog {
+        transform: translateY(0);
+    }
+}
+
+.modal-css-exit {
+    .modal-dialog {
+        transform: translateY(-1000px);
+    }
+}

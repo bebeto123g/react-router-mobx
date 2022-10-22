@@ -6,6 +6,7 @@ import { routes } from './routes/routes'
 
 import Header from './components/Header/Header'
 import PageLoader from './UI/Loader/PageLoader'
+import Modal from './components/Modal/Modal'
 
 function App() {
     const appRoutes = useRoutes(routes)
@@ -14,6 +15,7 @@ function App() {
         <>
             <Header />
             <Suspense fallback={<PageLoader />}>{appRoutes}</Suspense>
+            <Modal />
         </>
     )
 }
