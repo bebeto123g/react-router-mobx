@@ -1,11 +1,10 @@
 import React, { Suspense } from 'react'
 import { useRoutes } from 'react-router-dom'
+import { routes } from 'Router/routes'
+import PageLoader from 'Common/UI/Loader/PageLoader'
+import Header from 'Modules/components/Header/Header'
+import './Styles/global.scss'
 
-import './styles/global.scss'
-import { routes } from './routes/routes'
-
-import Header from './components/Header/Header'
-import PageLoader from './UI/Loader/PageLoader'
 
 function App() {
     const appRoutes = useRoutes(routes)

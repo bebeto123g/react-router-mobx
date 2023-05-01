@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# React + Mobx + Router + React-Hook-Form + React-Transition-Group ++React-Query в процессе
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
