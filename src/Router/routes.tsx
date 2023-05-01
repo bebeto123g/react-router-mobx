@@ -1,7 +1,6 @@
 import React, { lazy } from 'react'
 import { Navigate, RouteObject } from 'react-router-dom'
 
-
 import HomeView from 'Pages/HomeView'
 import RequireAuth from 'Common/HOC/RequireAuth'
 import TodoList from 'Modules/components/Todo/TodoList'
@@ -46,7 +45,11 @@ export const routes: RouteObject[] = [
     },
     {
         path: 'memo',
-        element: <TestMemoView />,
+        element: (
+            <RequireAuth>
+                <TestMemoView />
+            </RequireAuth>
+        ),
     },
     {
         path: 'posts',

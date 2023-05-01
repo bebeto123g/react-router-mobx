@@ -8,8 +8,8 @@ import Loader from 'Common/components/Loader/Loader'
 import { useStores } from 'Store'
 
 const TodoSearchList: FC<{ search: string }> = observer(({ search }) => {
-    const [filterTodo, setFilterTodo] = useState<ITodo[]>([])
     const navigate = useNavigate()
+    const [filterTodo, setFilterTodo] = useState<ITodo[]>([])
     const [isPendingTransitin, startTransition] = useTransition()
     const { todosStore } = useStores()
 
