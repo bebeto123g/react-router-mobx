@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import Container from 'Common/UI/Container/Container'
+import Container from 'Common/components/Container/Container'
 import ToggleAuthButton from 'Common/UX/ToggleAuthButton/ToggleAuthButton'
 
 const LoginView: FC = () => {

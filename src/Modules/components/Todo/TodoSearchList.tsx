@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './Todo.module.scss'
 import { ITodo } from 'Store/Todos'
 import Todo from './Todo'
-import Loader from 'Common/UI/Loader/Loader'
+import Loader from 'Common/components/Loader/Loader'
 import { useStores } from 'Store'
 
 const TodoSearchList: FC<{ search: string }> = observer(({ search }) => {

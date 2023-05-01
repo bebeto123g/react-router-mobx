@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import styles from './Todo.module.scss'
 import { ITodo } from 'Store/Todos'
-import ButtonX from 'Common/UI/ButtonX/ButtonX'
+import ButtonX from 'Common/components/ButtonX/ButtonX'
 import { useStores } from 'Store'
 
 interface ITodoProps extends AllHTMLAttributes<HTMLDivElement> {

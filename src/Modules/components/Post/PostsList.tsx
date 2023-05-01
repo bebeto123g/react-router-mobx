@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { observer } from 'mobx-react'
 import styles from './Post.module.scss'
 import Post from './Post'
-import Loader from 'Common/UI/Loader/Loader'
+import Loader from 'Common/components/Loader/Loader'
 import AddPost from './AddPost'
 import { useStores } from 'Store'
 

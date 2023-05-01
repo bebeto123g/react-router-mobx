@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { ITodo } from 'Store/Todos'
-import styles from '../components/Todo/Todo.module.scss'
-import Loader from 'Common/UI/Loader/Loader'
-import Container from 'Common/UI/Container/Container'
+import Loader from 'Common/components/Loader/Loader'
+import Container from 'Common/components/Container/Container'
 import { APIJson } from 'Core/API/APIJson'
 import AddTodoMemo from 'Modules/components/Todo/AddTodoMemo'
 import TodoMemo from 'Modules/components/Todo/TodoMemo'
+import styles from 'Modules/components/Todo/Todo.module.scss'
 
 const TestMemoView = () => {
     const [todos, setTodos] = useState<ITodo[] | null>(null)

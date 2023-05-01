@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from 'Common/UI/Container/Container'
+import Container from 'Common/components/Container/Container'
 import PostsList from 'Modules/components/Post/PostsList'
 
 const PostsView = () => {

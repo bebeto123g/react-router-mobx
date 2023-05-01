@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { useRoutes } from 'react-router-dom'
 import { routes } from 'Router/routes'
-import PageLoader from 'Common/UI/Loader/PageLoader'
+import PageLoader from 'Common/components/Loader/PageLoader'
 import Header from 'Modules/components/Header/Header'
 import './Styles/global.scss'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Header.module.scss'
-import Container from 'Common/UI/Container/Container'
+import Container from 'Common/components/Container/Container'
 import AppNavLink from '../NavLink/NavLink'
 import BackButton from 'Common/UX/BackButton/BackButton'
 import ToggleAuthButton from 'Common/UX/ToggleAuthButton/ToggleAuthButton'
