@@ -14,8 +14,6 @@ const TodoView: FC = observer(() => {
         }
     }, [navigate])
 
-
-
     const todo = $todos.todos?.find((todo) => todo.id === Number(todoId))
 
     if (!todo) {

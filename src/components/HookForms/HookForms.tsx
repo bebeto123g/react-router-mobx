@@ -65,7 +65,7 @@ const HookForms = () => {
                         })}
                     />
                     <br />
-                    <span className={styles.error}>{errors?.surname?.message}</span>
+                    <span className={styles.error}>{errors?.email?.message}</span>
                 </label>
 
                 <input type='submit' value='Отправить' disabled={!isValid} />
