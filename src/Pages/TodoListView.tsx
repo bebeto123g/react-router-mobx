@@ -1,8 +1,8 @@
 import React from 'react'
 import { Outlet, useSearchParams } from 'react-router-dom'
 import Container from 'Common/components/Container/Container'
-import TodoSearchForm from 'Modules/components/Todo/TodoSearchForm'
-import TodoSearchList from 'Modules/components/Todo/TodoSearchList'
+import TodoSearchForm from 'Modules/Todos/components/TodoSearchForm'
+import TodoSearchList from 'Modules/Todos/components/TodoSearchList'
 
 const TodoListView = () => {
     const [SearchParams] = useSearchParams()

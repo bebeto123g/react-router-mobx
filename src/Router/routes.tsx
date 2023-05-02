@@ -1,9 +1,8 @@
 import React, { lazy } from 'react'
 import { Navigate, RouteObject } from 'react-router-dom'
-
 import HomeView from 'Pages/HomeView'
 import RequireAuth from 'Common/HOC/RequireAuth'
-import TodoList from 'Modules/components/Todo/TodoList'
+import TodoList from 'Modules/Todos/components/TodoList'
 
 const TodoListView = lazy(() => import('Pages/TodoListView'))
 const AboutView = lazy(() => import('Pages/AboutView'))

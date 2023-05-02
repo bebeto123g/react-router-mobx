@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { ITodo } from 'Store/Todos'
+import { APIServiceJson } from 'Core/API/JsonPlaceholder/service'
 import Loader from 'Common/components/Loader/Loader'
 import Container from 'Common/components/Container/Container'
-import { APIJson } from 'Core/API/APIJson'
-import AddTodoMemo from 'Modules/components/Todo/AddTodoMemo'
-import TodoMemo from 'Modules/components/Todo/TodoMemo'
-import styles from 'Modules/components/Todo/Todo.module.scss'
+import AddTodoMemo from 'Modules/Todos/components/AddTodoMemo'
+import TodoMemo from 'Modules/Todos/components/TodoMemo'
+import { ITodo } from 'Modules/Todos/store/Todos'
+import styles from 'Modules/Todos/components/Todo.module.scss'
 
 const TestMemoView = () => {
     const [todos, setTodos] = useState<ITodo[] | null>(null)
@@ -48,7 +48,7 @@ const TestMemoView = () => {
 
     useEffect(() => {
         if (!todos) {
-            APIJson.getTodosPage().then((todos) => {
+            APIServiceJson.getTodosPage().then((todos) => {
                 setTodos(todos)
             })
         }

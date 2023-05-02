@@ -1,8 +1,8 @@
-import todosStore from './Todos'
-import userStore from './User'
-import postsStore from './Posts'
-import modalStore from './Modal'
 import { createContext, useContext } from 'react'
+import todosStore from '../Modules/Todos/store/Todos'
+import userStore from '../Modules/Main/store/User'
+import postsStore from '../Modules/Posts/store/Posts'
+import modalStore from '../Modules/Main/store/Modal'
 
 export const stores = {
     todosStore,

@@ -1,11 +1,11 @@
 import React, { FC, useEffect, useState, useTransition } from 'react'
 import { observer } from 'mobx-react'
 import { useNavigate } from 'react-router-dom'
+import { useStores } from 'Store'
 import styles from './Todo.module.scss'
-import { ITodo } from 'Store/Todos'
 import Todo from './Todo'
 import Loader from 'Common/components/Loader/Loader'
-import { useStores } from 'Store'
+import { ITodo } from '../store/Todos'
 
 const TodoSearchList: FC<{ search: string }> = observer(({ search }) => {
     const navigate = useNavigate()

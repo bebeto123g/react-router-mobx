@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
 import { observer } from 'mobx-react'
-import styles from './Todo.module.scss'
-
+import { useStores } from 'Store'
 import Loader from 'Common/components/Loader/Loader'
 import AddTodo from './AddTodo'
 import Todo from './Todo'
-import { useStores } from 'Store'
+import styles from './Todo.module.scss'
 
 const TodoList = observer(() => {
     const { todosStore } = useStores()

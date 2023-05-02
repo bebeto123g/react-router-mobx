@@ -1,10 +1,10 @@
 import React, { AllHTMLAttributes, FC } from 'react'
 import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react'
-import styles from './Todo.module.scss'
-import { ITodo } from 'Store/Todos'
-import ButtonX from 'Common/components/ButtonX/ButtonX'
 import { useStores } from 'Store'
+import ButtonX from 'Common/components/ButtonX/ButtonX'
+import { ITodo } from '../store/Todos'
+import styles from './Todo.module.scss'
 
 interface ITodoProps extends AllHTMLAttributes<HTMLDivElement> {
     todo: ITodo

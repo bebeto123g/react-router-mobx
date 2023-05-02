@@ -1,6 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-import $user from './User'
-import { APIJson } from 'Core/API/APIJson'
+import { APIServiceJson } from 'Core/API/JsonPlaceholder/service'
 
 export interface ITodo {
     userId: number
@@ -16,8 +15,8 @@ class Todos {
         makeAutoObservable(this)
     }
 
-    async get(page = 0) {
-        const todos = await APIJson.getTodosPage(page)
+    async get(page = 1) {
+        const todos = await APIServiceJson.getTodosPage({ page })
         this.setTodos(todos)
     }
 
@@ -25,10 +24,10 @@ class Todos {
         this.todos = todos
     }
 
-    add(title: string) {
+    add(title: string, userId: number) {
         this.todos?.push({
             id: Math.max(0, Math.max(...this.todos.map(({ id }) => id))) + 1,
-            userId: $user.id,
+            userId,
             title,
             completed: false,
         })

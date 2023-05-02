@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx'
+
 export interface IUserState {
     name: string
     surname: string

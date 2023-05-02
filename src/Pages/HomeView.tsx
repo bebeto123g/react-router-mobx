@@ -1,9 +1,9 @@
 import React, { FormEventHandler } from 'react'
 import { observer } from 'mobx-react'
-import Container from 'Common/components/Container/Container'
-import TextInput from 'Modules/components/Forms/TextInput/TextInput'
-import Modal from 'Modules/components/Modal/Modal'
 import { useStores } from 'Store'
+import Container from 'Common/components/Container/Container'
+import Modal from 'Common/components/Modal/Modal'
+import TextInput from 'Common/components/Forms/TextInput/TextInput'
 
 
 const HomeView = observer(() => {
