@@ -58,7 +58,8 @@ html {
     padding-bottom: $indent * 3;
 }
 
-button, .btn {
+button,
+.btn {
     padding: 10px 20px;
     cursor: pointer;
     background-color: cadetblue;
@@ -82,5 +83,13 @@ button, .btn {
         &:hover {
             box-shadow: $block-shadow;
         }
+    }
+
+    &.btn-secondary {
+        background: #555555;
+    }
+
+    &.btn-primary {
+        background: #3e47c7;
     }
 }

@@ -13,7 +13,7 @@ interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
     labelText: string
 }
 
-const TextInput: FC<ITextInput> = ({ name, value, onChange, labelText, className, ...props }) => {
+const TextInput = ({ name, value, onChange, labelText, className, ...props }: ITextInput) => {
     const [stateValue, setStateValue] = useState('')
 
     const inputRef = useRef<HTMLInputElement>(null)
