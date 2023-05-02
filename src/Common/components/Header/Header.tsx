@@ -1,9 +1,6 @@
 import React from 'react'
 import styles from './Header.module.scss'
-import Container from 'Common/components/Container/Container'
-import AppNavLink from '../../../Common/components/NavLink/NavLink'
-import BackButton from 'Common/UX/BackButton/BackButton'
-import ToggleAuthButton from 'Common/UX/ToggleAuthButton/ToggleAuthButton'
+import { AppNavLink, BackButton, Container, ToggleAuthButton } from 'Common'
 
 const Header = () => {
     // const match = useMatch('/list/:search')

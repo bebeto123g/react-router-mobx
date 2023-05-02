@@ -6,7 +6,7 @@ import Modal from 'Common/components/Modal/Modal'
 import TextInput from 'Common/components/Forms/TextInput/TextInput'
 
 
-const HomeView = observer(() => {
+const HomePage = observer(() => {
     const { userStore, modalStore } = useStores()
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
@@ -46,4 +46,4 @@ const HomeView = observer(() => {
     )
 })
 
-export default HomeView
+export default HomePage

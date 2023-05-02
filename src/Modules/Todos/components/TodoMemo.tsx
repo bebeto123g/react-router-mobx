@@ -1,7 +1,7 @@
-import React, { AllHTMLAttributes, FC } from 'react'
+import React, { AllHTMLAttributes } from 'react'
 import { Link } from 'react-router-dom'
-import ButtonX from 'Common/components/ButtonX/ButtonX'
-import { ITodo } from '../store/Todos'
+import { ITodo } from '../interfaces'
+import { ButtonX } from 'Common'
 import styles from './Todo.module.scss'
 
 interface ITodoProps extends AllHTMLAttributes<HTMLDivElement> {
@@ -10,13 +10,7 @@ interface ITodoProps extends AllHTMLAttributes<HTMLDivElement> {
     removeTodo: (id: number) => void
 }
 
-const TodoMemo: FC<ITodoProps> = ({
-    todo,
-    className = '',
-    toggleCompleted,
-    removeTodo,
-    ...props
-}) => {
+const TodoMemo = ({ todo, className = '', toggleCompleted, removeTodo, ...props }: ITodoProps) => {
     const wrapperStyles = `${styles.todoWrapper} ${className ?? ''} ${
         todo.completed ? styles.todoCompleted : ''
     }`

@@ -1,12 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 import { APIServiceJson } from 'Core/API/JsonPlaceholder/service'
-
-export interface ITodo {
-    userId: number
-    id: number
-    title: string
-    completed: boolean
-}
+import { ITodo } from '../interfaces'
 
 class Todos {
     todos: ITodo[] | null = null

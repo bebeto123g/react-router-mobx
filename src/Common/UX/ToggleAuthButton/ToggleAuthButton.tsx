@@ -1,7 +1,6 @@
 import React, { ButtonHTMLAttributes, FC } from 'react'
 import { Location, useLocation, useNavigate } from 'react-router-dom'
 import { observer } from 'mobx-react'
-
 import { useStores } from 'Store'
 
 interface IToggleAuthButton extends ButtonHTMLAttributes<HTMLButtonElement> {

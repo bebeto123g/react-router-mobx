@@ -1,8 +1,8 @@
 import React from 'react'
 import Container from 'Common/components/Container/Container'
-import PostsList from 'Modules/Posts/components/PostsList'
+import { PostsList } from 'Modules/Posts'
 
-const PostsView = () => {
+const PostsPage = () => {
     return (
         <Container>
             <h1>Posts Page</h1>
@@ -11,4 +11,4 @@ const PostsView = () => {
     )
 }
 
-export default PostsView
+export default PostsPage

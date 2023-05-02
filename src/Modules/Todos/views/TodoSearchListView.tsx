@@ -2,27 +2,27 @@ import React, { FC, useEffect, useState, useTransition } from 'react'
 import { observer } from 'mobx-react'
 import { useNavigate } from 'react-router-dom'
 import { useStores } from 'Store'
-import styles from './Todo.module.scss'
-import Todo from './Todo'
-import Loader from 'Common/components/Loader/Loader'
-import { ITodo } from '../store/Todos'
+import Todo from '../components/Todo'
+import { Loader } from 'Common'
+import { ITodo } from '../interfaces'
+import styles from '../components/Todo.module.scss'
 
-const TodoSearchList: FC<{ search: string }> = observer(({ search }) => {
+const TodoSearchListView: FC<{ search: string }> = observer(({ search }) => {
     const navigate = useNavigate()
     const [filterTodo, setFilterTodo] = useState<ITodo[]>([])
     const [isPendingTransitin, startTransition] = useTransition()
-    const { todosStore } = useStores()
+    const { TodoStore } = useStores()
 
     useEffect(() => {
-        if (!todosStore.todos) {
+        if (!TodoStore.todos) {
             navigate('/list')
         }
     }, [navigate])
 
     useEffect(() => {
         startTransition(() => {
-            if (!todosStore.todos) return
-            const searchArray = [...todosStore.todos].filter(
+            if (!TodoStore.todos) return
+            const searchArray = [...TodoStore.todos].filter(
                 (todo) => todo.title.toLowerCase().indexOf(search) !== -1,
             )
             setFilterTodo(searchArray)
@@ -48,4 +48,4 @@ const TodoSearchList: FC<{ search: string }> = observer(({ search }) => {
     )
 })
 
-export default TodoSearchList
+export default TodoSearchListView

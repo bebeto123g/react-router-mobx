@@ -1,27 +1,27 @@
 import React, { useEffect } from 'react'
 import { observer } from 'mobx-react'
 import { useStores } from 'Store'
-import Loader from 'Common/components/Loader/Loader'
-import AddTodo from './AddTodo'
-import Todo from './Todo'
-import styles from './Todo.module.scss'
+import AddTodo from '../components/AddTodo'
+import Todo from '../components/Todo'
+import styles from '../components/Todo.module.scss'
+import { Loader } from 'Common'
 
 const TodoList = observer(() => {
-    const { todosStore } = useStores()
+    const { TodoStore } = useStores()
 
     useEffect(() => {
-        if (!todosStore.todos) {
-            todosStore.get()
+        if (!TodoStore.todos) {
+            TodoStore.get()
         }
     }, [])
 
-    if (!todosStore.todos) return <Loader color='black' size='sm' />
+    if (!TodoStore.todos) return <Loader color='black' size='sm' />
 
     return (
         <>
             <AddTodo />
             <ul className={styles.list}>
-                {todosStore.todos.map((todo) => (
+                {TodoStore.todos.map((todo) => (
                     <Todo todo={todo} key={todo.title} />
                 ))}
             </ul>

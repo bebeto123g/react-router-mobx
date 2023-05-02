@@ -1,18 +1,18 @@
 import React, { FormEventHandler, useState } from 'react'
-import styles from './Post.module.scss'
-import TextInput from 'Common/components/Forms/TextInput/TextInput'
 import { observer } from 'mobx-react'
 import { useStores } from 'Store'
+import { TextInput } from 'Common'
+import styles from './Post.module.scss'
 
 const AddPost = observer(() => {
-    const { postsStore, userStore } = useStores()
+    const { PostStore, userStore } = useStores()
 
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
-        postsStore.add({ title, body, userId: userStore.id })
+        PostStore.add({ title, body, userId: userStore.id })
     }
 
     return (

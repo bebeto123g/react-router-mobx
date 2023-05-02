@@ -1,8 +1,7 @@
 import React from 'react'
 import { Outlet, useSearchParams } from 'react-router-dom'
 import Container from 'Common/components/Container/Container'
-import TodoSearchForm from 'Modules/Todos/components/TodoSearchForm'
-import TodoSearchList from 'Modules/Todos/components/TodoSearchList'
+import { TodoSearchForm, TodoSearchListView } from 'Modules/Todos'
 
 const TodoListView = () => {
     const [SearchParams] = useSearchParams()
@@ -12,7 +11,7 @@ const TodoListView = () => {
         <Container>
             <h1>TodoList Page</h1>
             <TodoSearchForm />
-            {search ? <TodoSearchList search={search} /> : <Outlet />}
+            {search ? <TodoSearchListView search={search} /> : <Outlet />}
         </Container>
     )
 }

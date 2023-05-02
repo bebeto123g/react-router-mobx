@@ -6,15 +6,15 @@ import { useStores } from 'Store'
 const TodoView: FC = observer(() => {
     const navigate = useNavigate()
     const { todoId } = useParams()
-    const { todosStore } = useStores()
+    const { TodoStore } = useStores()
 
     useEffect(() => {
-        if (!todosStore.todos) {
+        if (!TodoStore.todos) {
             navigate('/list')
         }
     }, [navigate])
 
-    const todo = todosStore.todos?.find((todo) => todo.id === Number(todoId))
+    const todo = TodoStore.todos?.find((todo) => todo.id === Number(todoId))
 
     if (!todo) {
         return (

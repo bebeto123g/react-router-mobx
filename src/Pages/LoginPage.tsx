@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Container from 'Common/components/Container/Container'
 import ToggleAuthButton from 'Common/UX/ToggleAuthButton/ToggleAuthButton'
 
-const LoginView: FC = () => {
+const LoginPage: FC = () => {
     return (
         <Container>
             <h1>Login Page</h1>
@@ -11,4 +11,4 @@ const LoginView: FC = () => {
     )
 }
 
-export default LoginView
+export default LoginPage

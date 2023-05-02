@@ -1,8 +1,8 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { observer } from 'mobx-react'
-import ButtonX from 'Common/components/ButtonX/ButtonX'
 import { useStores } from 'Store'
-import { IPost } from '../store/Posts'
+import { IPost } from '../interfaces'
+import { ButtonX } from 'Common'
 import styles from './Post.module.scss'
 
 interface IPostProps extends HTMLAttributes<HTMLDivElement> {
@@ -10,7 +10,7 @@ interface IPostProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Post: FC<IPostProps> = observer(({ post, className = '', ...props }) => {
-    const { postsStore } = useStores()
+    const { PostStore } = useStores()
 
     return (
         <div className={`${styles.post} ${className ?? ''}`} {...props}>
@@ -18,7 +18,7 @@ const Post: FC<IPostProps> = observer(({ post, className = '', ...props }) => {
                 <h3>
                     {post.id}. {post.title}
                 </h3>
-                <ButtonX className={styles.remove} onClick={() => postsStore.remove(post.id)} />
+                <ButtonX className={styles.remove} onClick={() => PostStore.remove(post.id)} />
             </div>
             <p>{post.body}</p>
         </div>

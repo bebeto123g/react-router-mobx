@@ -1,12 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 import { APIServiceJson } from 'Core/API/JsonPlaceholder/service'
-
-export interface IPost {
-    userId: number
-    id: number
-    title: string
-    body: string
-}
+import { IPost } from '../interfaces'
 
 export type IPostNewProps = Omit<IPost, 'id'>
 

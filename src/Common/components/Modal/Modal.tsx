@@ -2,7 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { CSSTransition } from 'react-transition-group'
 import { useStores } from 'Store'
-import Portal from 'Common/HOC/Portal'
+import { Portal } from 'Common'
 import './Modal.scss'
 
 const Modal = observer(() => {

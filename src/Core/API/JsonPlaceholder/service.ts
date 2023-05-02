@@ -1,8 +1,7 @@
-import axios from 'axios'
-import { IPost } from 'Modules/Posts/store/Posts'
-import { ITodo } from 'Modules/Todos/store/Todos'
 import { APIProvider } from 'Core/API/provider'
 import { IServiceRequestParams } from '../interfaces'
+import { ITodo } from 'Modules/Todos'
+import { IPost } from 'Modules/Posts'
 
 export class APIServiceJson {
     private static BASE_URL = 'https://jsonplaceholder.typicode.com/'

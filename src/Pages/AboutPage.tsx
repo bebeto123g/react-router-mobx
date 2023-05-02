@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from 'Common/components/Container/Container'
 
-const AboutView = () => {
+const AboutPage = () => {
     return (
         <Container>
             <h1>About Page</h1>
@@ -21,4 +21,4 @@ const AboutView = () => {
     )
 }
 
-export default AboutView
+export default AboutPage

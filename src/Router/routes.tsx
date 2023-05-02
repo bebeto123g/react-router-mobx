@@ -1,28 +1,27 @@
 import React, { lazy } from 'react'
 import { Navigate, RouteObject } from 'react-router-dom'
-import HomeView from 'Pages/HomeView'
-import RequireAuth from 'Common/HOC/RequireAuth'
-import TodoList from 'Modules/Todos/components/TodoList'
+import HomePage from 'Pages/HomePage'
+import RequireAuth from 'Common/components/RequireAuth/RequireAuth'
+import { TodoListView, TodoView } from 'Modules/Todos'
 
-const TodoListView = lazy(() => import('Pages/TodoListView'))
-const AboutView = lazy(() => import('Pages/AboutView'))
-const LoginView = lazy(() => import('Pages/LoginView'))
-const TodoView = lazy(() => import('Pages/TodoView'))
-const TestMemoView = lazy(() => import('Pages/TestMemoView'))
-const PostsView = lazy(() => import('Pages/PostsView'))
+const TodoListPage = lazy(() => import('Pages/TodoListPage'))
+const AboutPage = lazy(() => import('Pages/AboutPage'))
+const LoginPage = lazy(() => import('Pages/LoginPage'))
+const TestMemoPage = lazy(() => import('Pages/TestMemoPage'))
+const PostsPage = lazy(() => import('Pages/PostsPage'))
 
 export const routes: RouteObject[] = [
     {
         path: '/',
-        element: <HomeView />,
+        element: <HomePage />,
     },
     {
         path: 'list',
-        element: <TodoListView />,
+        element: <TodoListPage />,
         children: [
             {
                 path: '',
-                element: <TodoList />,
+                element: <TodoListView />,
             },
             {
                 path: ':todoId',
@@ -34,25 +33,25 @@ export const routes: RouteObject[] = [
         path: 'about',
         element: (
             <RequireAuth>
-                <AboutView />
+                <AboutPage />
             </RequireAuth>
         ),
     },
     {
         path: 'login',
-        element: <LoginView />,
+        element: <LoginPage />,
     },
     {
         path: 'memo',
         element: (
             <RequireAuth>
-                <TestMemoView />
+                <TestMemoPage />
             </RequireAuth>
         ),
     },
     {
         path: 'posts',
-        element: <PostsView />,
+        element: <PostsPage />,
     },
     {
         path: '*',

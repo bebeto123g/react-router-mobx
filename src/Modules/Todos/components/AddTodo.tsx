@@ -1,18 +1,18 @@
 import React, { ChangeEventHandler, FormEventHandler, useState } from 'react'
 import { observer } from 'mobx-react'
 import { useStores } from 'Store'
-import TextInput from 'Common/components/Forms/TextInput/TextInput'
+import { TextInput } from 'Common'
 import styles from './Todo.module.scss'
 
 const AddTodo = observer(() => {
-    const { todosStore, userStore } = useStores()
+    const { TodoStore, userStore } = useStores()
     const [value, setValue] = useState('')
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
         setValue((prev) => prev.trim())
         if (value) {
-            todosStore.add(value, userStore.id)
+            TodoStore.add(value, userStore.id)
         }
     }
 

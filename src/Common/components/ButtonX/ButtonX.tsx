@@ -1,7 +1,7 @@
-import React, { FC, HTMLAttributes } from 'react'
+import React, { HTMLAttributes } from 'react'
 import styles from './ButtonX.module.scss'
 
-const ButtonX: FC<HTMLAttributes<HTMLButtonElement>> = ({ className = '', ...props }) => {
+const ButtonX = ({ className = '', ...props }: HTMLAttributes<HTMLButtonElement>) => {
     return (
         <button {...props} className={`${styles.remove} ${className ?? ''}`}>
             &times;

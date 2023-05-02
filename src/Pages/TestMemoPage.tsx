@@ -2,12 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { APIServiceJson } from 'Core/API/JsonPlaceholder/service'
 import Loader from 'Common/components/Loader/Loader'
 import Container from 'Common/components/Container/Container'
-import AddTodoMemo from 'Modules/Todos/components/AddTodoMemo'
-import TodoMemo from 'Modules/Todos/components/TodoMemo'
-import { ITodo } from 'Modules/Todos/store/Todos'
-import styles from 'Modules/Todos/components/Todo.module.scss'
+import { AddTodoMemo, ITodo, TodoMemo, styles } from 'Modules/Todos'
 
-const TestMemoView = () => {
+const TestMemoPage = () => {
     const [todos, setTodos] = useState<ITodo[] | null>(null)
     const [isReverse, setIsReverse] = useState<boolean>(false)
 
@@ -88,4 +85,4 @@ const TestMemoView = () => {
     )
 }
 
-export default TestMemoView
+export default TestMemoPage

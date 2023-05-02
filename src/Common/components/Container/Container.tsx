@@ -1,11 +1,7 @@
-import React, { AllHTMLAttributes, FC } from 'react'
+import React, { AllHTMLAttributes } from 'react'
 import styles from './Container.module.scss'
 
-const Container: FC<AllHTMLAttributes<HTMLDivElement>> = ({
-    children,
-    className = '',
-    ...props
-}) => (
+const Container = ({ children, className = '', ...props }: AllHTMLAttributes<HTMLDivElement>) => (
     <div className={`${styles.container} ${className}`} {...props}>
         {children}
     </div>
