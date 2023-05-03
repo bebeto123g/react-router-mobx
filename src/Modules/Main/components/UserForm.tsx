@@ -1,9 +1,9 @@
-import React, { FormEventHandler } from 'react'
+import React, { ChangeEventHandler, FormEventHandler, useCallback } from 'react'
 import { observer } from 'mobx-react'
 import { useStores } from 'Store'
 import { TextInput } from 'Common'
 
-const MainUserForm = observer(() => {
+const UserForm = observer(() => {
     const { UserStore } = useStores()
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
@@ -11,23 +11,28 @@ const MainUserForm = observer(() => {
         console.log({...UserStore.state})
     }
 
+    const changeHandler: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+        const { name, value } = event.target
+        UserStore.setState({ [name]: value })
+    }, [UserStore])
+
     return (
         <form onSubmit={submitHandler}>
             <TextInput
                 value={UserStore.state.name}
-                onChange={(e) => UserStore.setState({ name: e.target.value })}
+                onChange={changeHandler}
                 name={'name'}
                 labelText='Имя'
             />
             <TextInput
                 value={UserStore.state.surname}
-                onChange={(e) => UserStore.setState({ surname: e.target.value })}
-                name={'lastName'}
+                onChange={changeHandler}
+                name={'surname'}
                 labelText='Фамилия'
             />
-            <button type='submit'>Отправить форму</button>
+            <button type='submit'>Редактировать</button>
         </form>
     )
 })
 
-export default MainUserForm
+export default UserForm

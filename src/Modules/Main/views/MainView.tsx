@@ -1,9 +1,7 @@
-import React, { FormEventHandler, useContext } from 'react'
+import React, { useContext } from 'react'
 import { observer } from 'mobx-react'
-import { useStores } from 'Store'
-import { Container, TextInput } from 'Common'
 import { MainModalContext } from '../components/MainModalWrapper'
-import MainUserForm from '../components/MainUserForm'
+import UserForm from '../components/UserForm'
 
 const MainView = observer(() => {
     const { onShowModal } = useContext(MainModalContext)
@@ -11,7 +9,7 @@ const MainView = observer(() => {
     return (
         <>
             <h1>Home Page</h1>
-            <MainUserForm />
+            <UserForm />
             <br />
             <hr />
             <br />
