@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-import { APIServiceJson } from 'Core/API/JsonPlaceholder/service'
+import { APIServiceJsonPlaceholder } from 'Core/API/JsonPlaceholder/service'
 import { ITodo } from '../interfaces'
 
 class Todos {
@@ -10,7 +10,7 @@ class Todos {
     }
 
     async get(page = 0) {
-        const todos = await APIServiceJson.getTodosPage({ page })
+        const todos = await APIServiceJsonPlaceholder.getTodosPage({ page })
         this.setTodos(todos)
     }
 

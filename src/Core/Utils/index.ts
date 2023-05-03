@@ -9,4 +9,10 @@ export class Utils {
         })
         return arr.join(' ')
     }
+
+    static delay(time = 500) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, time)
+        })
+    }
 }

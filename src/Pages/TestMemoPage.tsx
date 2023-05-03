@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { APIServiceJson } from 'Core/API/JsonPlaceholder/service'
+import { APIServiceJsonPlaceholder } from 'Core/API/JsonPlaceholder/service'
 import { AddTodoMemo, ITodo, TodoMemo, styles } from 'Modules/Todos'
 import { Loader } from 'Common'
 
@@ -44,7 +44,7 @@ const TestMemoPage = () => {
 
     useEffect(() => {
         if (!todos) {
-            APIServiceJson.getTodosPage().then((todos) => {
+            APIServiceJsonPlaceholder.getTodosPage().then((todos) => {
                 setTodos(todos)
             })
         }

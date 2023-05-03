@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-import { APIServiceJson } from 'Core/API/JsonPlaceholder/service'
+import { APIServiceJsonPlaceholder } from 'Core/API/JsonPlaceholder/service'
 import { IPost } from '../interfaces'
 
 export type IPostNewProps = Omit<IPost, 'id'>
@@ -12,7 +12,7 @@ class Posts {
     }
 
     async get(page = 0) {
-        const posts = await APIServiceJson.getPostsPage({ page })
+        const posts = await APIServiceJsonPlaceholder.getPostsPage({ page })
         this.setPosts(posts)
     }
 

@@ -4,12 +4,17 @@ import { BrowserRouter } from 'react-router-dom'
 
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const client = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
+    <QueryClientProvider client={client}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </QueryClientProvider>,
 )
 
 // If you want to start measuring performance in your app, pass a function

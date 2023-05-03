@@ -7,6 +7,7 @@ import AboutPage from 'Pages/AboutPage'
 import LoginPage from 'Pages/LoginPage'
 import TestMemoPage from 'Pages/TestMemoPage'
 import PostsPage from 'Pages/PostsPage'
+import TodoQueryPage from 'Pages/TodoQueryPage'
 import { TodoListView, TodoView } from 'Modules/Todos'
 
 export const routes: RouteObject[] = [
@@ -27,6 +28,10 @@ export const routes: RouteObject[] = [
                 element: <TodoView />,
             },
         ],
+    },
+    {
+        path: 'todo-query',
+        element: <TodoQueryPage />,
     },
     {
         path: 'about',
