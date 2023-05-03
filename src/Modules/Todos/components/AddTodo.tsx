@@ -5,14 +5,14 @@ import { TextInput } from 'Common'
 import styles from './Todo.module.scss'
 
 const AddTodo = observer(() => {
-    const { TodoStore, userStore } = useStores()
+    const { TodoStore, UserStore } = useStores()
     const [value, setValue] = useState('')
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
         setValue((prev) => prev.trim())
         if (value) {
-            TodoStore.add(value, userStore.id)
+            TodoStore.add(value, UserStore.id)
         }
     }
 

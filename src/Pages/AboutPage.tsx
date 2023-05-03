@@ -1,9 +1,8 @@
 import React from 'react'
-import Container from 'Common/components/Container/Container'
 
 const AboutPage = () => {
     return (
-        <Container>
+        <>
             <h1>About Page</h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum aut sit
@@ -17,7 +16,7 @@ const AboutPage = () => {
                 sequi, eaque quaerat beatae adipisci atque ex quis sit libero aspernatur omnis porro
                 accusantium quae.
             </p>
-        </Container>
+        </>
     )
 }
 

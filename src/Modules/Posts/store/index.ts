@@ -11,7 +11,7 @@ class Posts {
         makeAutoObservable(this)
     }
 
-    async get(page = 1) {
+    async get(page = 0) {
         const posts = await APIServiceJson.getPostsPage({ page })
         this.setPosts(posts)
     }

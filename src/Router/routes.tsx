@@ -1,19 +1,18 @@
-import React, { lazy } from 'react'
+import React from 'react'
 import { Navigate, RouteObject } from 'react-router-dom'
-import HomePage from 'Pages/HomePage'
-import RequireAuth from 'Common/components/RequireAuth/RequireAuth'
+import { RequireAuth } from 'Common'
+import MainPage from 'Pages/MainPage'
+import TodoListPage from 'Pages/TodoListPage'
+import AboutPage from 'Pages/AboutPage'
+import LoginPage from 'Pages/LoginPage'
+import TestMemoPage from 'Pages/TestMemoPage'
+import PostsPage from 'Pages/PostsPage'
 import { TodoListView, TodoView } from 'Modules/Todos'
-
-const TodoListPage = lazy(() => import('Pages/TodoListPage'))
-const AboutPage = lazy(() => import('Pages/AboutPage'))
-const LoginPage = lazy(() => import('Pages/LoginPage'))
-const TestMemoPage = lazy(() => import('Pages/TestMemoPage'))
-const PostsPage = lazy(() => import('Pages/PostsPage'))
 
 export const routes: RouteObject[] = [
     {
         path: '/',
-        element: <HomePage />,
+        element: <MainPage />,
     },
     {
         path: 'list',

@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { APIServiceJson } from 'Core/API/JsonPlaceholder/service'
-import Loader from 'Common/components/Loader/Loader'
-import Container from 'Common/components/Container/Container'
 import { AddTodoMemo, ITodo, TodoMemo, styles } from 'Modules/Todos'
+import { Loader } from 'Common'
 
 const TestMemoPage = () => {
     const [todos, setTodos] = useState<ITodo[] | null>(null)
@@ -56,7 +55,7 @@ const TestMemoPage = () => {
     const reverseTodos = todos?.reverse()
 
     return (
-        <Container>
+        <>
             <h1>Memo Page</h1>
             <div className=''>
                 <input
@@ -81,7 +80,7 @@ const TestMemoPage = () => {
                     />
                 ))}
             </ul>
-        </Container>
+        </>
     )
 }
 

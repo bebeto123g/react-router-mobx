@@ -9,7 +9,7 @@ class Todos {
         makeAutoObservable(this)
     }
 
-    async get(page = 1) {
+    async get(page = 0) {
         const todos = await APIServiceJson.getTodosPage({ page })
         this.setTodos(todos)
     }

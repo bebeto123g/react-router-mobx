@@ -15,13 +15,13 @@ interface ILocationState {
 
 const ToggleAuthButton: FC<IToggleAuthButton> = observer(
     ({ signIn, signOut, callback, ...props }) => {
-        const { userStore } = useStores()
+        const { UserStore } = useStores()
 
         const navigate = useNavigate()
         const state = useLocation().state as ILocationState
 
         const handler = () => {
-            userStore.isAuth ? userStore.logout() : userStore.login()
+            UserStore.isAuth ? UserStore.logout() : UserStore.login()
             navigate(state?.from?.pathname || '/', { replace: true })
             if (callback) {
                 callback()
@@ -30,7 +30,7 @@ const ToggleAuthButton: FC<IToggleAuthButton> = observer(
 
         return (
             <button {...props} onClick={handler}>
-                {userStore.isAuth ? signOut : signIn}
+                {UserStore.isAuth ? signOut : signIn}
             </button>
         )
     },

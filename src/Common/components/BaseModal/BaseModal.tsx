@@ -1,20 +1,21 @@
 import React, { FC, MouseEventHandler, PropsWithChildren, ReactNode } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { ButtonX, Portal } from 'Common'
-import './Modal.scss'
+import './BaseModal.scss'
 
-interface IBaseModalProps {
+export interface IBaseModalProps {
     isShow: boolean
-    onClose: () => void
     title: ReactNode
-    actions: ReactNode[]
+    actions: ReactNode
+    onClose: () => void
 }
 
 const BaseModal: FC<PropsWithChildren<IBaseModalProps>> = ({
     isShow,
-    onClose,
     title,
     children,
+    actions,
+    onClose,
 }) => {
     const handleOverlay: MouseEventHandler<HTMLDivElement> = (event) => {
         if (event.target === event.currentTarget) {
@@ -42,18 +43,7 @@ const BaseModal: FC<PropsWithChildren<IBaseModalProps>> = ({
                                 <ButtonX className='btn-close' onClick={onClose} />
                             </div>
                             <div className='modal-body'>{children}</div>
-                            <div className='modal-footer'>
-                                <button
-                                    type='button'
-                                    className='btn btn-secondary'
-                                    onClick={onClose}
-                                >
-                                    Close
-                                </button>
-                                <button type='button' className='btn btn-primary'>
-                                    Save changes
-                                </button>
-                            </div>
+                            <div className='modal-footer'>{actions}</div>
                         </div>
                     </div>
                 </div>

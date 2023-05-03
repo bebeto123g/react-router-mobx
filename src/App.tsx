@@ -1,8 +1,7 @@
 import React, { Suspense } from 'react'
 import { useRoutes } from 'react-router-dom'
 import { routes } from 'Router/routes'
-import PageLoader from 'Common/components/Loader/PageLoader'
-import Header from 'Common/components/Header/Header'
+import { Container, Header, PageLoader } from 'Common'
 import './Styles/global.scss'
 
 function App() {
@@ -11,7 +10,9 @@ function App() {
     return (
         <>
             <Header />
-            <Suspense fallback={<PageLoader />}>{appRoutes}</Suspense>
+            <Container>
+                <Suspense fallback={<PageLoader />}>{appRoutes}</Suspense>
+            </Container>
         </>
     )
 }

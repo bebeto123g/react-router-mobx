@@ -1,14 +1,12 @@
 import { createContext, useContext } from 'react'
 import { TodoStore } from 'Modules/Todos'
 import { PostStore } from 'Modules/Posts'
-import userStore from 'Modules/Main/store/User'
-import modalStore from 'Modules/Main/store/Modal'
+import { UserStore } from 'Modules/Main'
 
 export const stores = {
     TodoStore,
     PostStore,
-    userStore,
-    modalStore,
+    UserStore,
 }
 
 export type TStore = typeof stores

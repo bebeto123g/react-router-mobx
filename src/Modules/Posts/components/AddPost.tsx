@@ -5,14 +5,14 @@ import { TextInput } from 'Common'
 import styles from './Post.module.scss'
 
 const AddPost = observer(() => {
-    const { PostStore, userStore } = useStores()
+    const { PostStore, UserStore } = useStores()
 
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
-        PostStore.add({ title, body, userId: userStore.id })
+        PostStore.add({ title, body, userId: UserStore.id })
     }
 
     return (

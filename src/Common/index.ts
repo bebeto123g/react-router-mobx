@@ -4,13 +4,13 @@ import HookForms from './components/Forms/HookForms/HookForms'
 import TextInput from './components/Forms/TextInput/TextInput'
 import Header from './components/Header/Header'
 import Loader from './components/Loader/Loader'
-import Modal from './components/Modal/Modal'
 import PageLoader from './components/Loader/PageLoader'
 import AppNavLink from './components/NavLink/NavLink'
 import Portal from './components/Portal/Portal'
 import RequireAuth from './components/RequireAuth/RequireAuth'
 import BackButton from './UX/BackButton/BackButton'
 import ToggleAuthButton from './UX/ToggleAuthButton/ToggleAuthButton'
+import BaseModal, { IBaseModalProps } from './components/BaseModal/BaseModal'
 
 export {
     ButtonX,
@@ -20,10 +20,12 @@ export {
     Header,
     Loader,
     PageLoader,
-    Modal,
     AppNavLink,
     Portal,
     RequireAuth,
     BackButton,
     ToggleAuthButton,
+    BaseModal,
 }
+
+export type { IBaseModalProps }
