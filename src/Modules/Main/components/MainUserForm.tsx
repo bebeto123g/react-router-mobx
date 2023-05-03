@@ -8,20 +8,20 @@ const MainUserForm = observer(() => {
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
-        console.log(UserStore.state)
+        console.log({...UserStore.state})
     }
 
     return (
         <form onSubmit={submitHandler}>
             <TextInput
-                value={UserStore.name}
-                onChange={(e) => UserStore.setName(e.target.value)}
+                value={UserStore.state.name}
+                onChange={(e) => UserStore.setState({ name: e.target.value })}
                 name={'name'}
                 labelText='Имя'
             />
             <TextInput
-                value={UserStore.surname}
-                onChange={(e) => UserStore.setSurname(e.target.value)}
+                value={UserStore.state.surname}
+                onChange={(e) => UserStore.setState({ surname: e.target.value })}
                 name={'lastName'}
                 labelText='Фамилия'
             />

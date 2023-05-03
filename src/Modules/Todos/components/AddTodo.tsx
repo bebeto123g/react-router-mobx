@@ -12,7 +12,7 @@ const AddTodo = observer(() => {
         event.preventDefault()
         setValue((prev) => prev.trim())
         if (value) {
-            TodoStore.add(value, UserStore.id)
+            TodoStore.add(value, UserStore.state.id)
         }
     }
 

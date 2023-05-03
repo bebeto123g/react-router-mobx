@@ -1,65 +1,35 @@
-import { makeAutoObservable } from 'mobx'
+import { action, computed, makeObservable } from 'mobx'
+import { StoreWithPersist } from 'Core/Store/StoreWithPersist'
 
-export interface IUserState {
-    name: string
-    surname: string
-    isAuth: boolean
-    id: number
+const initialUserState = {
+    name: '',
+    surname: '',
+    isAuth: false,
+    id: 123,
 }
 
-class User implements IUserState {
-    private static USER_FORM_STORAGE_KEY = 'storage/user-form'
+export type TUserState = typeof initialUserState
 
-    name = ''
-    surname = ''
-    isAuth = false
-    id = 123
-
+class User extends StoreWithPersist<TUserState> {
     constructor() {
-        this.getStateFromLocalStorage()
-        makeAutoObservable(this)
+        super(initialUserState, 'user-form')
+        makeObservable(this, {
+            login: action,
+            logout: action,
+            isAuth: computed,
+        })
     }
 
-    setName(name: string): void {
-        this.name = name
-        this.setStateToLocalStorage()
+    public login(): void {
+        this.setState({ isAuth: true })
     }
 
-    setSurname(surname: string): void {
-        this.surname = surname
-        this.setStateToLocalStorage()
+    public logout(): void {
+        this.setState({ isAuth: false })
     }
 
-    login(): void {
-        this.isAuth = true
-        this.setStateToLocalStorage()
-    }
-
-    logout(): void {
-        this.isAuth = false
-        this.setStateToLocalStorage()
-    }
-
-    getStateFromLocalStorage(): void {
-        const storageUserForm = localStorage.getItem(User.USER_FORM_STORAGE_KEY)
-        if (!storageUserForm) return
-        const storage: IUserState = JSON.parse(storageUserForm)
-        this.isAuth = storage.isAuth
-        this.name = storage.name
-        this.surname = storage.surname
-    }
-
-    setStateToLocalStorage(): void {
-        localStorage.setItem(User.USER_FORM_STORAGE_KEY, JSON.stringify(this.state))
-    }
-
-    get state(): IUserState {
-        return {
-            name: this.name,
-            surname: this.surname,
-            isAuth: this.isAuth,
-            id: this.id,
-        }
+    public get isAuth() {
+        return this.state.isAuth
     }
 }
 

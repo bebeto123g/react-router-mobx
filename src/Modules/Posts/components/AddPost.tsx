@@ -12,7 +12,7 @@ const AddPost = observer(() => {
 
     const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
-        PostStore.add({ title, body, userId: UserStore.id })
+        PostStore.add({ title, body, userId: UserStore.state.id })
     }
 
     return (
