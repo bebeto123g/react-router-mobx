@@ -1,0 +1,11 @@
+@import 'Styles/services/common';
+
+.actionBar {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+
+  button:not(:last-child) {
+    margin-right: 10px;
+  }
+}

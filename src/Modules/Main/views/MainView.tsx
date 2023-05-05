@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { observer } from 'mobx-react'
+import { ActionButton } from 'Common'
 import { MainModalContext } from '../components/MainModalWrapper'
 import UserForm from '../components/UserForm'
 
@@ -13,7 +14,10 @@ const MainView = observer(() => {
             <br />
             <hr />
             <br />
-            <button onClick={onShowModal}>Открыть модалку</button>
+            <ActionButton
+                onClick={onShowModal}
+                label={'Открыть модалку'}
+            />
         </>
     )
 })

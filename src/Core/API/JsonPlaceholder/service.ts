@@ -2,17 +2,14 @@ import { APIProvider } from 'Core/API/provider'
 import { IServiceRequestParams } from '../interfaces'
 import { ITodo } from 'Modules/Todos'
 import { IPost } from 'Modules/Posts'
+import { JSON_PLACEHOLDER_BASE_URL } from './constants'
 
 export class APIServiceJsonPlaceholder {
-    private static BASE_URL = 'https://jsonplaceholder.typicode.com/'
-
     static async getTodosPage({ page = 0, pageSize = 10 }: IServiceRequestParams = {}): Promise<
         ITodo[]
     > {
         return APIProvider.get<ITodo[]>(
-            `${APIServiceJsonPlaceholder.BASE_URL}todos?_start=${
-                pageSize * page
-            }&_limit=${pageSize}`,
+            `${JSON_PLACEHOLDER_BASE_URL}/todos?_start=${pageSize * page}&_limit=${pageSize}`,
         )
     }
 
@@ -20,9 +17,7 @@ export class APIServiceJsonPlaceholder {
         IPost[]
     > {
         return APIProvider.get<IPost[]>(
-            `${APIServiceJsonPlaceholder.BASE_URL}posts?_start=${
-                pageSize * page
-            }&_limit=${pageSize}`,
+            `${JSON_PLACEHOLDER_BASE_URL}/posts?_start=${pageSize * page}&_limit=${pageSize}`,
         )
     }
 }

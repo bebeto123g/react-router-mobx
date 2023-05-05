@@ -1,7 +1,7 @@
 import { action, makeObservable, observable } from 'mobx'
 
 export class StoreWithPersist<TState extends object> {
-    private STORAGE_KEY: string
+    private readonly STORAGE_KEY: string
     public state: TState
 
     constructor(state: TState, key: string) {

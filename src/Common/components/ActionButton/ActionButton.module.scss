@@ -1,0 +1,22 @@
+@import 'Styles/services/common';
+
+.actionButton {
+  @include reset-button;
+  background-color: white;
+  color: #383636;
+  padding: 10px 20px;
+  border: 1px solid cadetblue;
+  box-shadow: none;
+  transition: 0.3s;
+  &:hover {
+    box-shadow: none;
+    background-color: #417375;
+    color: white;
+  }
+}
+
+.active {
+  box-shadow: none;
+  background-color: cadetblue;
+  color: white;
+}

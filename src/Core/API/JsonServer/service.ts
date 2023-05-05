@@ -1,17 +1,31 @@
 import { APIProvider } from 'Core/API/provider'
-import { Utils } from 'Core/Utils'
+import { ETodoQueryFilterAction, ITodoQuery } from 'Modules/TodoQuery'
+import { JSON_SERVER_BASE_URL_TODOS } from './constants'
 
-export interface ITodoJson {
-    id: number
-    title: string
-    completed: boolean
-}
-
+/* TODO это все нужно в модуль вынести, но мне лень */
 export class APIServiceJsonServer {
-    private static BASE_URL = 'http://localhost:3004/'
+    static async getTodos(filter: ETodoQueryFilterAction): Promise<ITodoQuery[]> {
+        const queries = APIServiceJsonServer.createGetTodosQueryFilter(filter)
+        return APIProvider.get<ITodoQuery[]>(`${JSON_SERVER_BASE_URL_TODOS}/${queries}`)
+    }
 
-    static async getTodos(): Promise<ITodoJson[]> {
-        await Utils.delay(1000)
-        return APIProvider.get<ITodoJson[]>(`${APIServiceJsonServer.BASE_URL}todos`)
+    static createTodo(title: string) {
+        return APIProvider.post<ITodoQuery, Omit<ITodoQuery, 'id'>>(JSON_SERVER_BASE_URL_TODOS, {
+            title,
+            completed: false,
+        })
+    }
+
+    static toggleTodoStatus(todoId: number, completed: boolean) {
+        return APIProvider.patch<ITodoQuery, Omit<ITodoQuery, 'id' | 'title'>>(
+            `${JSON_SERVER_BASE_URL_TODOS}/${todoId}`,
+            { completed },
+        )
+    }
+
+    static createGetTodosQueryFilter(filter: ETodoQueryFilterAction) {
+        return filter === ETodoQueryFilterAction.ALL
+            ? ''
+            : `?completed=${filter === ETodoQueryFilterAction.COMPLETED}`
     }
 }

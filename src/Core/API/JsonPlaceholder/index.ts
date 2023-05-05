@@ -1,0 +1,1 @@
+export { APIServiceJsonPlaceholder } from './service'
