@@ -10,13 +10,12 @@ const TestMemoPage = () => {
     const toggleCompleted = useCallback((id: number) => {
         setTodos((todos) => {
             if (!todos) return null
-            const newTodos = todos.map((todo) => {
+            return todos.map((todo) => {
                 if (todo.id === id) {
                     todo.completed = !todo.completed
                 }
                 return todo
             })
-            return newTodos
         })
     }, [])
 
