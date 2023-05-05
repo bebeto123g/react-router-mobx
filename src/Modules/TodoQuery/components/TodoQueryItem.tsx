@@ -14,21 +14,19 @@ const TodoQueryItem = ({ todo }: ITodoQueryItemProps) => {
     const { mutate, isLoading } = useMutation({
         mutationFn: () => APIServiceJsonServer.toggleTodoStatus(todo.id, !todo.completed),
         onSuccess: async (newTodo) => {
-            // await client.invalidateQueries({ queryKey: [JSON_SERVER_TODO_QUERY_KEY] })
-
             client.setQueriesData<ITodoQuery[]>([JSON_SERVER_TODO_QUERY_KEY], (oldTodos) => {
-                if (!oldTodos?.length) {
-                    return [newTodo]
+                const todos = [...oldTodos || []]
+                const index = todos.findIndex((todo) => todo.id === newTodo.id)
+
+                if (todos[index]) {
+                    todos[index].completed = newTodo.completed
                 }
-                const todos = [...oldTodos]
-                const index = oldTodos.findIndex((todo) => todo.id === newTodo.id)
-                todos[index].completed = newTodo.completed
+
                 return todos
             })
 
             await client.invalidateQueries({
                 queryKey: [JSON_SERVER_TODO_QUERY_KEY],
-                refetchType: 'none',
             })
         },
         onError: (e) => {
