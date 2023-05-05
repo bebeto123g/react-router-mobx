@@ -5,7 +5,6 @@ import { APIServiceJsonServer, JSON_SERVER_TODO_QUERY_KEY } from 'Core/API/JsonS
 import { ETodoQueryFilterAction } from 'Modules/TodoQuery/enums'
 import { TODO_QUERY_ACTIONS_MODEL } from 'Modules/TodoQuery/constants'
 import TodoQueryItem from 'Modules/TodoQuery/components/TodoQueryItem'
-import { ITodoQuery } from 'Modules/TodoQuery/interfaces'
 import styles from './TodoQuery.module.scss'
 
 const TodoQueryList = () => {
@@ -24,22 +23,6 @@ const TodoQueryList = () => {
         setFilterTodo(value)
     }, [])
 
-    const todos: ITodoQuery[] = useMemo(() => {
-        if (!data) {
-            return []
-        }
-
-        if (filterTodo === ETodoQueryFilterAction.COMPLETED) {
-            return data.filter((todo) => todo.completed)
-        }
-
-        if (filterTodo === ETodoQueryFilterAction.NOT_COMPLETED) {
-            return data.filter((todo) => !todo.completed)
-        }
-
-        return [...data]
-    }, [data, filterTodo])
-
     return (
         <>
             <ActionBar<ETodoQueryFilterAction>
@@ -52,7 +35,7 @@ const TodoQueryList = () => {
                 <PageLoader />
             ) : (
                 <ul className={styles.list}>
-                    {isSuccess && todos.map((todo) => <TodoQueryItem key={todo.id} todo={todo} />)}
+                    {isSuccess && data.map((todo) => <TodoQueryItem key={todo.id} todo={todo} />)}
                 </ul>
             )}
         </>
