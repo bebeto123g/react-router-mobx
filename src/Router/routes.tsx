@@ -3,6 +3,7 @@ import { Navigate, RouteObject } from 'react-router-dom'
 import { RequireAuth } from 'Common'
 import MainPage from 'Pages/MainPage'
 import TodoListPage from 'Pages/TodoListPage'
+import PostsQueryPage from 'Pages/PostsQueryPage'
 import AboutPage from 'Pages/AboutPage'
 import LoginPage from 'Pages/LoginPage'
 import TestMemoPage from 'Pages/TestMemoPage'
@@ -32,6 +33,10 @@ export const routes: RouteObject[] = [
     {
         path: 'todo-query',
         element: <TodoQueryPage />,
+    },
+    {
+        path: 'posts-query',
+        element: <PostsQueryPage />,
     },
     {
         path: 'about',

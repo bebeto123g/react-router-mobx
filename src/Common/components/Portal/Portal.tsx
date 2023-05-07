@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 interface IPortalProps {
@@ -14,7 +14,7 @@ const Portal = (props: IPortalProps) => {
         return () => {
             document.body.removeChild(container)
         }
-    }, [])
+    }, [container])
 
     return createPortal(props.children, container)
 }

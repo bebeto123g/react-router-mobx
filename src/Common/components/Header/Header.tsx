@@ -11,7 +11,8 @@ const Header = () => {
             <Container className={styles.container}>
                 <AppNavLink to={'/'}>Домой</AppNavLink>
                 <AppNavLink to={'/list'}>Список</AppNavLink>
-                <AppNavLink to={'/todo-query'}>Query</AppNavLink>
+                <AppNavLink to={'/todo-query'}>Query Todo</AppNavLink>
+                <AppNavLink to={'/posts-query'}>Query Posts</AppNavLink>
                 <AppNavLink to={'/about'}>О проекте</AppNavLink>
                 <AppNavLink to={'/memo'}>Memo</AppNavLink>
                 <AppNavLink to={'/posts'}>Посты</AppNavLink>
