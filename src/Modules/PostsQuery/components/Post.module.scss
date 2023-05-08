@@ -1,0 +1,59 @@
+@import 'Styles/services/common';
+
+.list {
+    @include ul-default;
+    display: flex;
+    flex-direction: column-reverse;
+
+    .post {
+        margin-bottom: 16px;
+        &:first-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.post {
+    padding: 16px;
+    border: 1px solid cadetblue;
+    margin-bottom: 10px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.remove {
+    margin-left: 16px;
+}
+
+.addTodo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: $indent * 3;
+
+    .addInput {
+        flex-grow: 1;
+        margin-bottom: $indent * 2;
+    }
+
+    button {
+        width: 150px;
+        margin-left: auto;
+    }
+}
+
+.searchForm {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $indent * 3;
+}
+
+.searchInput {
+    flex-grow: 1;
+    margin-bottom: 0;
+    height: 42px;
+}

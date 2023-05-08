@@ -1,7 +1,7 @@
 import React, { FormEventHandler, useState } from 'react'
 import { observer } from 'mobx-react'
 import { useStores } from 'Store'
-import { TextInput } from 'Common'
+import { TextInputLazy } from 'Common'
 import styles from './Post.module.scss'
 
 const AddPost = observer(() => {
@@ -17,14 +17,14 @@ const AddPost = observer(() => {
 
     return (
         <form className={styles.addTodo} onSubmit={submitHandler}>
-            <TextInput
+            <TextInputLazy
                 labelText='Заголовок'
                 value={title}
                 onChange={(e) => setTitle(e.target.value.trim())}
                 name={'title'}
                 className={styles.addInput}
             />
-            <TextInput
+            <TextInputLazy
                 labelText='Описание'
                 value={body}
                 onChange={(e) => setBody(e.target.value.trim())}

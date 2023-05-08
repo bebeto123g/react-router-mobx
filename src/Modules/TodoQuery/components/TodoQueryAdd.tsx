@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, MouseEventHandler, useCallback, useState } from 'react'
-import { TextInput } from 'Common'
+import { TextInputLazy } from 'Common'
 import { useQueryTodo } from 'Modules/TodoQuery/service/useQueryTodo'
 
 const TodoQueryAdd = () => {
@@ -23,7 +23,12 @@ const TodoQueryAdd = () => {
 
     return (
         <>
-            <TextInput value={todoText} onChange={changeHandler} name={'todo'} labelText='TODO' />
+            <TextInputLazy
+                value={todoText}
+                onChange={changeHandler}
+                name={'todo'}
+                labelText='TODO'
+            />
             <button type='button' onClick={submitHandler}>
                 Создать
             </button>

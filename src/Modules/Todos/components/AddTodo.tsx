@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler, FormEventHandler, useState } from 'react'
 import { observer } from 'mobx-react'
 import { useStores } from 'Store'
-import { TextInput } from 'Common'
+import { TextInputLazy } from 'Common'
 import styles from './Todo.module.scss'
 
 const AddTodo = observer(() => {
@@ -22,7 +22,7 @@ const AddTodo = observer(() => {
 
     return (
         <form className={styles.addTodo} onSubmit={submitHandler}>
-            <TextInput
+            <TextInputLazy
                 labelText='Добавить задачу'
                 value={value}
                 onChange={changeHandler}

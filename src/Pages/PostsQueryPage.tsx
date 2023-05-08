@@ -1,10 +1,12 @@
 import React from 'react'
+import { PostsQueryView } from 'Modules/PostsQuery'
 
 const PostsQueryPage = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <h1>PostsQuery Page</h1>
+            <PostsQueryView />
+        </>
     )
 }
 

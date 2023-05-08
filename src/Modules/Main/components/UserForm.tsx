@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler, FormEventHandler, useCallback } from 'react'
 import { observer } from 'mobx-react'
 import { useStores } from 'Store'
-import { TextInput } from 'Common'
+import { TextInputLazy } from 'Common'
 
 const UserForm = observer(() => {
     const { UserStore } = useStores()
@@ -18,13 +18,13 @@ const UserForm = observer(() => {
 
     return (
         <form onSubmit={submitHandler}>
-            <TextInput
+            <TextInputLazy
                 value={UserStore.state.name}
                 onChange={changeHandler}
                 name={'name'}
                 labelText='Имя'
             />
-            <TextInput
+            <TextInputLazy
                 value={UserStore.state.surname}
                 onChange={changeHandler}
                 name={'surname'}

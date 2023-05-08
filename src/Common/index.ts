@@ -3,7 +3,8 @@ import ActionButton from './components/ActionButton/ActionButton'
 import ActionBar, { IActionBarModel } from 'Common/components/ActionBar/ActionBar'
 import Container from './components/Container/Container'
 import HookForms from './components/Forms/HookForms/HookForms'
-import TextInput from './components/Forms/TextInput/TextInput'
+import TextInputLazy from 'Common/components/Forms/TextInput/TextInputLazy'
+import TextInput from 'Common/components/Forms/TextInput/TextInput'
 import Header from './components/Header/Header'
 import Loader from './components/Loader/Loader'
 import PageLoader from './components/Loader/PageLoader'
@@ -20,6 +21,7 @@ export {
     ActionBar,
     Container,
     HookForms,
+    TextInputLazy,
     TextInput,
     Header,
     Loader,

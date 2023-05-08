@@ -10,6 +10,7 @@ body {
     font-family: map_get($fonts, default);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-y: scroll;
 }
 
 code {
