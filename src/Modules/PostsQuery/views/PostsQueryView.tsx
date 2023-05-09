@@ -11,7 +11,7 @@ const PostsQueryView = () => {
     const [posts, setPosts] = useState<IPostQuery[] | null>(null)
     const [isLoading, setIsLoading] = useState(false)
     const [search, setSearch] = useState('')
-    const [isPending, startTransition] = useTransition()
+    // const [isPending, startTransition] = useTransition()
 
     const createNewPost = async (post: IPostQuery) => {
         setPosts((prev) => {
@@ -21,9 +21,10 @@ const PostsQueryView = () => {
     }
 
     const searchHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
-        startTransition(() => {
-            setSearch(event.target.value)
-        })
+        // startTransition(() => {
+        //     setSearch(event.target.value)
+        // })
+        setSearch(event.target.value)
     }
 
     const searchPosts =
@@ -32,7 +33,10 @@ const PostsQueryView = () => {
             while (count < 1_000_000) {
                 count++
             }
-            return title.includes(search) || text.includes(search)
+            return (
+                title.toLowerCase().includes(search.toLowerCase()) ||
+                text.toLowerCase().includes(search.toLowerCase())
+            )
         }) || []
 
     useEffect(() => {
@@ -47,9 +51,6 @@ const PostsQueryView = () => {
         getPosts()
     }, [])
 
-    console.log('PostsQueryView render')
-    console.log('isPending', isPending)
-
     return (
         <>
             <TextInput
@@ -61,10 +62,8 @@ const PostsQueryView = () => {
                 type='search'
             />
             <PostsQueryAdd createNewPost={createNewPost} />
-            {(isLoading || isPending) && <PageLoader />}
-            {!isLoading && !isPending && posts && (
-                <PostsQueryList posts={searchPosts} />
-            )}
+            {isLoading && <PageLoader />}
+            {!isLoading && posts && <PostsQueryList posts={searchPosts} />}
         </>
     )
 }
